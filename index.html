@@ -14,7 +14,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      background-image: url('profil.jpg'); /* Replace with your image */
+      background-image: url('profil.jpg');
       min-height: 100%;
     }
   </style>
@@ -79,8 +79,7 @@
   <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
     <h2>About</h2>
     <hr class="w3-opacity">
-    <p>Hello! I'm Pawan Kumar, a passionate web developer skilled in building responsive and user-friendly websites using HTML, CSS, JavaScript, and frameworks like Bootstrap and React. I enjoy solving coding challenges and bringing ideas to life through interactive web interfaces.
-    </p>
+    <p>Hello! I'm Pawan Kumar, a passionate web developer skilled in building responsive and user-friendly websites using HTML, CSS, JavaScript, and frameworks like Bootstrap and React. I enjoy solving coding challenges and bringing ideas to life through interactive web interfaces.</p>
 
     <h3 class="w3-padding-16">My Skills</h3>
     <p class="w3-wide">Web Development</p>
@@ -114,34 +113,31 @@
     <div class="w3-section">
       <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Sundernagar, India</p>
       <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +91 8580852407</p>
-      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: pawan200228@gmail.com</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"></i> Email: pawan200228@gmail.com</p>
     </div>
 
-    <form action="https://formsubmit.co/pawan200228@gmail.com" method="POST">
-  <!-- 🔁 Redirect after submission -->
-  <input type="hidden" name="_next" value="https://pawan-o3.github.io/PortFolio/">
+    <!-- Form with Alert & Redirect -->
+    <form id="contactForm">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
 
-  <!-- Form Fields -->
-  <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="name"></p>
-  <p><input class="w3-input w3-padding-16 w3-border" type="email" placeholder="Email" required name="email"></p>
-  <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="subject"></p>
-  <p><textarea class="w3-input w3-padding-16 w3-border" placeholder="Message" required name="message" rows="4"></textarea></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="email" placeholder="Email" required name="email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="subject"></p>
+      <p><textarea class="w3-input w3-padding-16 w3-border" placeholder="Message" required name="message" rows="4"></textarea></p>
 
-  <!-- Submit & Clear Buttons -->
-  <p>
-    <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-      <i class="fa fa-paper-plane"></i> SEND MESSAGE
-    </button>
-
-    <button class="w3-button w3-dark-grey w3-padding-large" type="reset">
-      <i class="fa fa-eraser"></i> CLEAR
-    </button>
-  </p>
-</form>
-
-    
+      <p>
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+        <button class="w3-button w3-dark-grey w3-padding-large" type="reset">
+          <i class="fa fa-eraser"></i> CLEAR
+        </button>
+      </p>
+    </form>
   </div>
 </div>
+
 <script>
 function openNav() {
   document.getElementById("mySidebar").style.display = "block";
@@ -149,6 +145,31 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidebar").style.display = "none";
 }
+
+// Handle form submission with alert and redirect
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const formData = new FormData(form);
+
+  fetch("https://formsubmit.co/pawan200228@gmail.com", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      alert("✅ Your message has been sent!");
+      window.location.href = "https://pawan-o3.github.io/PortFolio/";
+    } else {
+      alert("❌ Message failed. Please try again.");
+    }
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert("❌ An error occurred. Please try again.");
+  });
+});
 </script>
 
 </body>
