@@ -118,23 +118,31 @@
     </div>
 
     <form action="https://formsubmit.co/pawan200228@gmail.com" method="POST">
-        <input type="text" name="Name" required>
-        <input type="email" name="Email" required>
-        <textarea name="Message" required></textarea>
-        <input type="hidden" name="_next" value="https://pawan-03.github.io/index.html">
-  
-        <button type="submit">Send</button>
-      <p>
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-        
-        <button class="w3-button w3-dark-grey w3-padding-large" type="reset">
-          <i class="fa fa-eraser"></i> CLEAR
-        </button>
-      </p>
-      
-    </form>
+  <!-- Disable CAPTCHA and format as table -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+
+  <!-- 🔁 Redirect after submission -->
+  <input type="hidden" name="_next" value="https://pawan-03.github.io/index.html">
+
+  <!-- Form Fields -->
+  <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="name"></p>
+  <p><input class="w3-input w3-padding-16 w3-border" type="email" placeholder="Email" required name="email"></p>
+  <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Subject" required name="subject"></p>
+  <p><textarea class="w3-input w3-padding-16 w3-border" placeholder="Message" required name="message" rows="4"></textarea></p>
+
+  <!-- Submit & Clear Buttons -->
+  <p>
+    <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+      <i class="fa fa-paper-plane"></i> SEND MESSAGE
+    </button>
+
+    <button class="w3-button w3-dark-grey w3-padding-large" type="reset">
+      <i class="fa fa-eraser"></i> CLEAR
+    </button>
+  </p>
+</form>
+
     
   </div>
 </div>
